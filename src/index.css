@@ -1,0 +1,496 @@
+/* Travel Adventure Typography - Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-slate-900: #0a0a0a;
+  --color-slate-800: #171717;
+  --color-slate-700: #262626;
+  --color-slate-600: #404040;
+  --color-slate-500: #525252;
+  --color-slate-400: #a3a3a3;
+  --color-slate-300: #d4d4d4;
+  --color-yellow-500: #facc15;
+  --color-yellow-400: #fde047;
+  --color-yellow-300: #fde047;
+  --color-zinc-900: #0a0a0a;
+  --color-zinc-800: #18181b;
+  --color-zinc-700: #27272a;
+  --color-zinc-600: #3f3f46;
+  --color-zinc-500: #52525b;
+  --color-zinc-400: #a1a1aa;
+  --color-zinc-300: #c4c4c7;
+  --color-zinc-200: #e4e4e7;
+  --color-zinc-600: #3f3f46;
+}
+
+/* Custom Font Variables */
+:root {
+  --font-display: 'Sora', system-ui, sans-serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-accent: 'Outfit', system-ui, sans-serif;
+}
+
+/* Typography Base */
+body {
+  font-family: var(--font-body);
+  background-color: #0a0a0a;
+  color: white;
+  margin: 0;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.01em;
+}
+
+/* Headings - Bold Travel Aesthetic */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+/* Large Display Text */
+.display-xl {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.display-lg {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.display-md {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+/* Travel-inspired accent text */
+.accent-text {
+  font-family: var(--font-accent);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Navigation */
+nav, .nav-menu {
+  font-family: var(--font-accent);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* Buttons */
+button, .btn {
+  font-family: var(--font-accent);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+/* Body text */
+p, .prose {
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
+/* Cards & UI */
+.card-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.card-body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* Inputs */
+input, textarea, select {
+  font-family: var(--font-body);
+  letter-spacing: 0;
+}
+
+input::placeholder, textarea::placeholder {
+  font-family: var(--font-body);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+/* Labels */
+label {
+  font-family: var(--font-accent);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+/* Badges & Tags */
+.badge, .tag {
+  font-family: var(--font-accent);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.625rem;
+}
+
+/* ==========================================
+   TRAVEL AESTHETIC ENHANCEMENTS
+   ========================================== */
+
+/* Decorative text effects */
+.text-gradient-travel {
+  background: linear-gradient(135deg, #facc15 0%, #fde047 50%, #facc15 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-sunset {
+  background: linear-gradient(135deg, #f97316 0%, #facc15 50%, #fbbf24 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-glow {
+  text-shadow: 0 0 30px rgba(250, 204, 21, 0.3);
+}
+
+.text-glow-strong {
+  text-shadow: 0 0 40px rgba(250, 204, 21, 0.5), 0 0 80px rgba(250, 204, 21, 0.3);
+}
+
+/* Travel-inspired decorative borders */
+.border-glow {
+  border: 1px solid rgba(250, 204, 21, 0.3);
+  box-shadow: 0 0 20px rgba(250, 204, 21, 0.1);
+}
+
+.border-glow-hover:hover {
+  border-color: rgba(250, 204, 21, 0.5);
+  box-shadow: 0 0 30px rgba(250, 204, 21, 0.2);
+}
+
+/* Adventure card effect */
+.card-adventure {
+  background: linear-gradient(145deg, rgba(26, 26, 26, 0.8) 0%, rgba(13, 13, 13, 0.9) 100%);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(250, 204, 21, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-adventure::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #facc15, transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card-adventure:hover::before {
+  opacity: 1;
+}
+
+/* Compass/Map decorative element */
+.compass-decoration {
+  position: relative;
+}
+
+.compass-decoration::after {
+  content: '✦';
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  color: #facc15;
+  font-size: 0.5rem;
+  animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+/* Travel route lines */
+.route-line {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.route-line::before {
+  content: '';
+  position: absolute;
+  left: 0.5rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, #facc15, rgba(250, 204, 21, 0.2));
+}
+
+/* Animated location pin effect */
+.pin-bounce {
+  animation: pin-bounce 1s ease-in-out infinite;
+}
+
+@keyframes pin-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* Travel badge styles */
+.badge-adventure {
+  background: linear-gradient(135deg, rgba(250, 204, 21, 0.2) 0%, rgba(250, 204, 21, 0.1) 100%);
+  border: 1px solid rgba(250, 204, 21, 0.3);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-category {
+  background: linear-gradient(135deg, rgba(250, 204, 21, 0.15) 0%, rgba(250, 204, 21, 0.05) 100%);
+  border: 1px solid rgba(250, 204, 21, 0.2);
+}
+
+/* Stats counter */
+.stat-travel {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  background: linear-gradient(180deg, #ffffff 0%, #a3a3a3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Hero text animations */
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.hero-subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  color: #71717a;
+}
+
+/* Section titles with adventure flair */
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 40%;
+  height: 3px;
+  background: linear-gradient(90deg, #facc15, transparent);
+  border-radius: 2px;
+}
+
+/* Travel form enhancements */
+.input-travel {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid #3f3f46;
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.input-travel:focus {
+  border-color: #facc15;
+  box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.1);
+  outline: none;
+}
+
+.input-travel::placeholder {
+  color: #52525b;
+}
+
+/* Button styles */
+.btn-adventure {
+  background: linear-gradient(135deg, #facc15 0%, #fde047 50%, #facc15 100%);
+  color: #0a0a0a;
+  font-family: var(--font-accent);
+  font-weight: 600;
+  padding: 0.875rem 1.5rem;
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 20px rgba(250, 204, 21, 0.3);
+}
+
+.btn-adventure:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(250, 204, 21, 0.4);
+}
+
+.btn-adventure:active {
+  transform: translateY(0);
+}
+
+/* Destination card hover */
+.destination-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+
+.destination-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.destination-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(250, 204, 21, 0.2);
+}
+
+/* Travel timeline */
+.timeline-dot {
+  width: 12px;
+  height: 12px;
+  background: #facc15;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(250, 204, 21, 0.2);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #52525b;
+}
+
+/* Focus States */
+*:focus-visible {
+  outline: 2px solid #facc15;
+  outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+  background: rgba(250, 204, 21, 0.3);
+  color: white;
+}
+
+/* Map Background - used by TripDetails, SharedTrip, Budget, Packing, Notes, Profile */
+.map-bg {
+  background: #0a0a0a;
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(250, 204, 21, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(250, 204, 21, 0.03) 0%, transparent 50%);
+  min-height: 100vh;
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+  .display-xl { font-size: 2.5rem; }
+  .display-lg { font-size: 2rem; }
+  .display-md { font-size: 1.5rem; }
+  .hero-title { font-size: 2.5rem; }
+  .stat-travel { font-size: 2rem; }
+}
+
+@media (max-width: 480px) {
+  .display-xl { font-size: 2rem; }
+  .display-lg { font-size: 1.5rem; }
+  .hero-title { font-size: 2rem; }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #52525b;
+}
+
+/* Focus States */
+*:focus-visible {
+  outline: 2px solid #facc15;
+  outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+  background: rgba(250, 204, 21, 0.3);
+  color: white;
+}
+
+/* Map Background - used by TripDetails, SharedTrip, Budget, Packing, Notes, Profile */
+.map-bg {
+  background: #0a0a0a;
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(250, 204, 21, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(250, 204, 21, 0.03) 0%, transparent 50%);
+  min-height: 100vh;
+}
