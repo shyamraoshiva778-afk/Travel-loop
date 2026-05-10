@@ -1,3 +1,4 @@
+import React from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { supabase } from './lib/supabase'
@@ -14,30 +15,110 @@ import Profile from './pages/Profile'
 import SharedTrip from './pages/SharedTrip'
 import LandingPage from './components/ui/LandingPage'
 
+// Error Boundary Component
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { hasError: false, error: null }
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true, error }
+  }
+
+  componentDidCatch(error, errorInfo) {
+    console.error('React Error:', error, errorInfo)
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="min-h-screen bg-black flex items-center justify-center p-4">
+          <div className="text-center max-w-md">
+            <h1 className="text-2xl font-bold text-white mb-4">Something went wrong</h1>
+            <p className="text-zinc-500 mb-4">{this.state.error?.message}</p>
+            <button
+              onClick={() => window.location.reload()}
+              className="px-6 py-3 bg-yellow-400 text-black font-semibold rounded-xl"
+            >
+              Reload Page
+            </button>
+          </div>
+        </div>
+      )
+    }
+    return this.props.children
+  }
+}
+
 function App() {
   const [session, setSession] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session)
-      setLoading(false)
-    })
+    let mounted = true
+
+    const initAuth = async () => {
+      try {
+        const { data: { session } } = await supabase.auth.getSession()
+        if (mounted) {
+          setSession(session)
+          setLoading(false)
+        }
+      } catch (err) {
+        console.error('Auth init error:', err)
+        if (mounted) {
+          setError(err.message)
+          setLoading(false)
+        }
+      }
+    }
+
+    initAuth()
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session)
-      setLoading(false)
+      if (mounted) {
+        setSession(session)
+        setLoading(false)
+      }
     })
 
-    return () => subscription.unsubscribe()
+    return () => {
+      mounted = false
+      subscription.unsubscribe()
+    }
   }, [])
+
+  // Show error state
+  if (error) {
+    return (
+      <div className="min-h-screen bg-black flex items-center justify-center p-4">
+        <div className="text-center max-w-md">
+          <h1 className="text-2xl font-bold text-red-400 mb-4">Connection Error</h1>
+          <p className="text-zinc-500 mb-2">Unable to connect to Supabase.</p>
+          <p className="text-zinc-600 text-sm mb-4">Please check your environment variables in Vercel.</p>
+          <p className="text-zinc-400 text-xs mb-4 font-mono">
+            VITE_SUPABASE_URL<br/>
+            VITE_SUPABASE_ANON_KEY
+          </p>
+          <button
+            onClick={() => window.location.reload()}
+            className="px-6 py-3 bg-yellow-400 text-black font-semibold rounded-xl"
+          >
+            Try Again
+          </button>
+        </div>
+      </div>
+    )
+  }
 
   if (loading) {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
         <div className="flex flex-col items-center gap-4">
           <div className="w-12 h-12 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin"></div>
-          <span className="text-zinc-500">Loading...</span>
+          <span className="text-zinc-500">Loading Traveloop...</span>
         </div>
       </div>
     )
